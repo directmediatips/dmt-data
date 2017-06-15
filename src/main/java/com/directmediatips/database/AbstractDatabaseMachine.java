@@ -27,6 +27,9 @@ public abstract class AbstractDatabaseMachine {
 	
 	/**
 	 * Constructs a DatabaseMachine and initializes the connection.
+	 *
+	 * @throws SQLException the SQL exception
+	 * @throws IOException Signals that an I/O exception has occurred.
 	 */
 	protected AbstractDatabaseMachine() throws SQLException, IOException {
 		connection = new DatabaseConnection();
@@ -41,9 +44,9 @@ public abstract class AbstractDatabaseMachine {
 	
 	/**
 	 * Replaces every character that isn't an ASCII character with a space character.
-	 * 
-	 * @param 	s	the String
-	 * @returns	a String consisting of only ASCII characters
+	 *
+	 * @param s the string that may contain non-ASCII characters
+	 * @return a String consisting of only ASCII characters
 	 */
 	public String makeASCII(String s) {
 		return s.replaceAll("[^\\x00-\\xFF]", " ");

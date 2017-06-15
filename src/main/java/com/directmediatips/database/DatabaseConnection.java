@@ -29,7 +29,7 @@ import java.util.Properties;
  */
 public class DatabaseConnection {
 	
-	/** Path to the properties file to make the DB connection: */
+	/**  Path to the properties file to make the DB connection:. */
 	protected static final String PROPS = "database/db.properties";
 	/** The actual connection. */
 	protected Connection connection;
@@ -37,8 +37,9 @@ public class DatabaseConnection {
 	/**
 	 * Creates a database connection by reading the connection details
 	 * from a properties file.
-	 * @throws IOException
-	 * @throws SQLException
+	 *
+	 * @throws IOException Signals that an I/O exception has occurred.
+	 * @throws SQLException the SQL exception
 	 */
 	public DatabaseConnection() throws IOException, SQLException {
 		Properties properties = new Properties();
@@ -57,9 +58,10 @@ public class DatabaseConnection {
 	
 	/**
 	 * Executes a simple SQL query and returns a result set.
-	 * @param sql	the SQL query
-	 * @return	a ResultSet
-	 * @throws SQLException
+	 *
+	 * @param sql the SQL query
+	 * @return a ResultSet
+	 * @throws SQLException the SQL exception
 	 */
 	public ResultSet execute(String sql) throws SQLException {
 		return connection.createStatement().executeQuery(sql);
@@ -67,9 +69,10 @@ public class DatabaseConnection {
 	
 	/**
 	 * Creates a prepared statement.
-	 * @param sql	the SQL template for the query
-	 * @return	a prepared statement
-	 * @throws SQLException
+	 *
+	 * @param sql the SQL template for the query
+	 * @return a prepared statement
+	 * @throws SQLException the SQL exception
 	 */
 	public PreparedStatement prepare(String sql) throws SQLException {
 		return connection.prepareStatement(sql);
